@@ -101,6 +101,13 @@
               <nexusUrl>${pubStagingRepo}</nexusUrl>
               <autoReleaseAfterClose>${autoReleaseAfterClose}</autoReleaseAfterClose>
             </configuration>
+            <dependencies>
+              <dependency>
+                <groupId>com.thoughtworks.xstream</groupId>
+                <artifactId>xstream</artifactId>
+                <version>1.4.15</version>
+              </dependency>
+            </dependencies>
           </plugin>
           <plugin>
             <groupId>org.apache.maven.plugins</groupId>
