@@ -45,7 +45,7 @@
     <pubSnapRepo>https://s01.oss.sonatype.org/content/repositories/snapshots</pubSnapRepo>
     <pubStagingRepoId>ossrh</pubStagingRepoId>
     <pubStagingRepo>https://s01.oss.sonatype.org/</pubStagingRepo>
-    <shared-resources.version>1.0.0</shared-resources.version>
+    <shared-resources.version>1.2.0</shared-resources.version>
   </properties>
 
   <profiles>
