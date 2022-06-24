@@ -10,7 +10,7 @@
 
   <groupId>dev.crashteam</groupId>
   <artifactId>service-parent-pom</artifactId>
-  <version>1.0.2</version>
+  <version>1.0.3</version>
 
   <name>Crashteam parent</name>
   <description>crashteam library parent pom</description>
