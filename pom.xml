@@ -10,7 +10,7 @@
 
   <groupId>dev.crashteam</groupId>
   <artifactId>service-parent-pom</artifactId>
-  <version>1.0.8</version>
+  <version>1.0.9</version>
 
   <name>Crashteam parent</name>
   <description>crashteam library parent pom</description>
@@ -45,7 +45,7 @@
     <pubSnapRepo>https://s01.oss.sonatype.org/content/repositories/snapshots</pubSnapRepo>
     <pubStagingRepoId>ossrh</pubStagingRepoId>
     <pubStagingRepo>https://s01.oss.sonatype.org/</pubStagingRepo>
-    <shared-resources.version>1.2.4</shared-resources.version>
+    <shared-resources.version>1.2.5</shared-resources.version>
     <resource.delimiter>${*}</resource.delimiter>
   </properties>
 
