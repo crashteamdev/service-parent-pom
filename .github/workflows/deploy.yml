@@ -5,6 +5,7 @@ on:
     branches:
       - 'master'
       - 'main'
+      - 'rc/**'
 
 jobs:
   deploy:
@@ -16,6 +17,7 @@ jobs:
       - name: Deploy package
         uses: crashteamdev/action-maven-deploy@v0.0.3
         with:
+          jdk-version: '21'
           server-username: ${{ secrets.OSSRH_USERNAME }}
           server-password: ${{ secrets.OSSRH_TOKEN }}
           deploy-secret-key: ${{ secrets.OSSRH_GPG_SECRET_KEY }}
