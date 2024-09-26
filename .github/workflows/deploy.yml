@@ -15,7 +15,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Deploy package
-        uses: crashteamdev/action-maven-deploy@v0.0.3
+        uses: crashteamdev/action-maven-deploy@v0.0.6
         with:
           jdk-version: '21'
           server-username: ${{ secrets.OSSRH_USERNAME }}
