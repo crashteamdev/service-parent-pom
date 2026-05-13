@@ -39,12 +39,6 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <pubRepoId>ossrh</pubRepoId>
-    <pubRepo>https://s01.oss.sonatype.org/content/repositories/releases</pubRepo>
-    <pubSnapRepoId>ossrh</pubSnapRepoId>
-    <pubSnapRepo>https://s01.oss.sonatype.org/content/repositories/snapshots</pubSnapRepo>
-    <pubStagingRepoId>ossrh</pubStagingRepoId>
-    <pubStagingRepo>https://s01.oss.sonatype.org/</pubStagingRepo>
     <shared-resources.version>2.0.1</shared-resources.version>
     <resource.delimiter>${*}</resource.delimiter>
   </properties>
@@ -60,30 +54,19 @@
   <profiles>
     <profile>
       <id>deploy</id>
-      <distributionManagement>
-        <snapshotRepository>
-          <id>${pubSnapRepoId}</id>
-          <url>${pubSnapRepo}</url>
-        </snapshotRepository>
-        <repository>
-          <id>${pubRepoId}</id>
-          <url>${pubRepo}</url>
-        </repository>
-      </distributionManagement>
-      <repositories>
-        <repository>
-          <id>${pubSnapRepoId}</id>
-          <url>${pubSnapRepo}</url>
-          <releases>
-            <enabled>false</enabled>
-          </releases>
-          <snapshots>
-            <enabled>true</enabled>
-          </snapshots>
-        </repository>
-      </repositories>
       <build>
         <plugins>
+          <plugin>
+            <groupId>org.sonatype.central</groupId>
+            <artifactId>central-publishing-maven-plugin</artifactId>
+            <version>0.10.0</version>
+            <extensions>true</extensions>
+            <configuration>
+              <publishingServerId>ossrh</publishingServerId>
+              <autoPublish>true</autoPublish>
+              <waitUntil>published</waitUntil>
+            </configuration>
+          </plugin>
           <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-javadoc-plugin</artifactId>
@@ -101,27 +84,9 @@
             </executions>
           </plugin>
           <plugin>
-            <groupId>org.sonatype.plugins</groupId>
-            <artifactId>nexus-staging-maven-plugin</artifactId>
-            <version>1.6.8</version>
-            <extensions>true</extensions>
-            <configuration>
-              <serverId>${pubStagingRepoId}</serverId>
-              <nexusUrl>${pubStagingRepo}</nexusUrl>
-              <autoReleaseAfterClose>${autoReleaseAfterClose}</autoReleaseAfterClose>
-            </configuration>
-            <dependencies>
-              <dependency>
-                <groupId>com.thoughtworks.xstream</groupId>
-                <artifactId>xstream</artifactId>
-                <version>1.4.15</version>
-              </dependency>
-            </dependencies>
-          </plugin>
-          <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-gpg-plugin</artifactId>
-            <version>3.0.1</version>
+            <version>3.2.8</version>
             <executions>
               <execution>
                 <id>sign-artifacts</id>
